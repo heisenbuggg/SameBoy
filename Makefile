@@ -76,9 +76,19 @@ LDFLAGS += -lc -lm
 endif
 
 ifeq ($(PLATFORM),Darwin)
+# CLT가 있으면 xcrun으로, 없으면 Xcode(xcodebuild)로 폴백
+SYSROOT ?= $(shell xcrun --sdk macosx --show-sdk-path 2> /dev/null)
+ifeq ($(strip $(SYSROOT)),)
 SYSROOT := $(shell xcodebuild -sdk macosx -version Path 2> /dev/null)
+endif
+
 CFLAGS += -F/Library/Frameworks
-OCFLAGS += -x objective-c -fobjc-arc -Wno-deprecated-declarations -isysroot $(SYSROOT) -mmacosx-version-min=10.9
+# -isysroot는 SYSROOT가 있을 때만 추가 (빈 sysroot로 인한 에러 방지)
+OCFLAGS += -x objective-c -fobjc-arc -Wno-deprecated-declarations -mmacosx-version-min=10.9
+ifneq ($(strip $(SYSROOT)),)
+OCFLAGS += -isysroot $(SYSROOT)
+endif
+
 LDFLAGS += -framework AppKit -framework PreferencePanes -framework Carbon -framework QuartzCore -weak_framework Metal -weak_framework MetalKit
 SDL_LDFLAGS := -F/Library/Frameworks -framework SDL2 -framework OpenGL
 endif

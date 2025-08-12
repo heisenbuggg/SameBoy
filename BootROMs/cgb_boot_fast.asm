@@ -1,2 +1,2 @@
-FAST EQU 1
+DEF FAST EQU 1
 include "cgb_boot.asm"

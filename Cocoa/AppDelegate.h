@@ -2,7 +2,7 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property IBOutlet NSWindow *preferencesWindow;
+@property (strong) IBOutlet NSWindow *preferencesWindow;
 @property (strong) IBOutlet NSView *graphicsTab;
 @property (strong) IBOutlet NSView *emulationTab;
 @property (strong) IBOutlet NSView *audioTab;

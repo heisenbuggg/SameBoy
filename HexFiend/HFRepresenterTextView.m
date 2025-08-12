@@ -1201,6 +1201,7 @@ static size_t unionAndCleanLists(NSRect *rectList, id *valueList, size_t count) 
     textTransform.tx += [self horizontalContainerInset];
     textTransform.ty += [fontObject ascender] - lineHeight * [self verticalOffset];
     NSUInteger lineIndex = 0;
+    (void)lineIndex;
     const NSUInteger maxGlyphCount = [self maximumGlyphCountForByteCount:bytesPerLine];
     NEW_ARRAY(struct HFGlyph_t, glyphs, maxGlyphCount);
     NEW_ARRAY(CGSize, advances, maxGlyphCount);

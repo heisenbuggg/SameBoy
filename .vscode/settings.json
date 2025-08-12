@@ -1,0 +1,8 @@
+{
+    "editor.fontSize": 15,
+    "editor.fontFamily": "Jetbrains mono, 'BM DoHyeon', Victor Mono",
+    "workbench.colorTheme": "1f9697bd-aec1-49ff-bdb4-c37ef8ace62b",
+    "window.autoDetectColorScheme": true,
+    "workbench.editor.decorations.colors": true,
+    "workbench.colorCustomizations": {}
+}

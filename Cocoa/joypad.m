@@ -554,6 +554,7 @@ JoystickDeviceWasAddedCallback(void *ctx, IOReturn res, void *sender, IOHIDDevic
 {
     recDevice *device;
     io_service_t ioservice;
+    (void)ioservice;
 
     if (res != kIOReturnSuccess) {
         return;

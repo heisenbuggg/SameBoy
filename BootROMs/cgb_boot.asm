@@ -434,10 +434,10 @@ Dups4thLetterArray:
 ; We assume the last three arrays fit in the same $100 byte page!
 
 PaletteCombinations:
-palette_comb: MACRO ; Obj0, Obj1, Bg
+MACRO palette_comb ; Obj0, Obj1, Bg
     db (\1) * 8, (\2) * 8, (\3) *8
 ENDM
-raw_palette_comb: MACRO ; Obj0, Obj1, Bg
+MACRO raw_palette_comb ; Obj0, Obj1, Bg
     db (\1) * 2, (\2) * 2, (\3) * 2
 ENDM
     palette_comb 4, 4, 29
@@ -532,7 +532,7 @@ Palettes:
     dw $7FFF, $7FEA, $7D5F, $0000 ; CGA 1
     dw $4778, $3290, $1D87, $0861 ; DMG LCD
 
-KeyCombinationPalettes
+KeyCombinationPalettes:
     db 1 ; Right
     db 48 ; Left
     db 5 ; Up
